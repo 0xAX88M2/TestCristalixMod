@@ -1,0 +1,16 @@
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+        maven{
+            setUrl("http://51.83.213.14/repo/private")
+            allowInsecureProtocol = true
+            credentials {
+                username = System.getenv("DL_REPO_LOGIN") as String
+                password = System.getenv("DL_REPO_PASSWORD") as String
+            }
+        }
+    }
+}
+
+rootProject.name = 'TestCristalixMod'

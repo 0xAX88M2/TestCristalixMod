@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.0'
+}
+
+group = 'me.milesglitch'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        url = "https://repository.anfanik.me/public/"
+    }
+    maven{
+        setUrl("http://51.83.213.14/repo/private")
+        allowInsecureProtocol = true
+        credentials {
+            username = System.getenv("DL_REPO_LOGIN") as String
+            password = System.getenv("DL_REPO_PASSWORD") as String
+        }
+    }
+    maven {
+        setUrl("https://repo.spongepowered.org/repository/maven-public/")
+    }
+}
+
+dependencies {
+    implementation("ru.cristalix:client-api:6.0.0")
+    implementation("ru.cristalix:uiengine:6.0.20")
+}
